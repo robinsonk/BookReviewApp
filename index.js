@@ -5,10 +5,10 @@
 const youtubeApiKey= 'AIzaSyAuWUVv36LyE1npxUfX3OhWRc7n7ihYz4c';
 const youtubeSearchURL = 'https://www.googleapis.com/youtube/v3/search';
 
-//Google Books API Key and endpoint
+//Google Books API Key and endpoint. Key is not necessary for basic info
 //Google Books uses %20 to connect spaces 
 const googleSearchURL = 'https://www.googleapis.com/books/v1/volumes?q=';
-const googleApiKey = 'CRt642z4e40YBentkuBMQ';
+const googleApiKey = 'AIzaSyAuWUVv36LyE1npxUfX3OhWRc7n7ihYz4c';
 
 function formListener() {
     console.log('The formListener function is running \nWaiting for user input...');
@@ -57,12 +57,12 @@ function displayBookData(responseJson2) {
     <h2>Title: ${responseJson2.items[0].volumeInfo.title}</h2>
     <h3>Author: ${responseJson2.items[0].volumeInfo.authors}</h3>
     <h4>Genre: ${responseJson2.items[0].volumeInfo.categories}</h4>
-    <p>Blurb: ${responseJson2.items[0].searchInfo.textSnippet}</p><br><br><br>
+    <p>Blurb: ${responseJson2.items[0].volumeInfo.description}</p><br><br><br>
     `);    
 }
 
 
-//Gathering Review Results from YT and GB ---------------------------------------------------------------------------------------------------
+//Gathering and displaying Review Results from YT and GB --------------------------------------------------------------------------------------
 
 function youtubeApiCall(title, author) {
     console.log('The youtubeApiCall function is running...')
@@ -81,10 +81,14 @@ function displayResults(responseJson) {
  //Display the results from the apiCall function and display them in the DOM
     for (let i = 0; i < responseJson.items.length; i++)
     $('.youtube-results').append(`
-    <img src="${responseJson.items[i].snippet.thumbnails.medium.url}" alt="video snippet">
+    <iframe id="ytplayer" type="text/html" width="640" height="360"
+        src="https://www.youtube.com/embed/${responseJson.items[i].id.videoId}?autoplay=1"
+        frameborder="0">
+    </iframe>
     <h3>${responseJson.items[i].snippet.title}</h3>
     <p>${responseJson.items[i].snippet.description}</p><br><br><br>
     `);
+    //Display embedded YT video
 }
 
 function runApp() {
