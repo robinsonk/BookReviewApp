@@ -1,0 +1,59 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin-left: 40px;
+    margin-right: 40px;
+}
+
+h1 {
+    text-align: center;
+    font-family: 'Abril Fatface', cursive;
+    font-weight: 400;
+    font-size: 55px;
+}
+
+.subtitle {
+    text-align: center;
+    font-family: 'Playfair Display', serif;
+    font-weight: 400;
+    font-size: 30px;
+    margin-bottom: 20px;
+}
+
+input {
+    width: 300px;
+    height: 40px;
+}
+
+form {
+    margin-bottom: 40px;
+    font-family: 'Alegreya Sans', sans-serif;
+}
+
+.expand {
+    width: 300px;
+    height: 40px;
+}
+
+.book-details {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-content: flex-start;
+    flex-wrap: wrap;
+}
+
+h2, h3, h4 {
+    font-family: 'Playfair Display', serif;
+    font-weight: normal;
+}
+
+p {
+    font-family: 'Alegreya Sans', sans-serif;
+}
+
+#ytplayer {
+    width: 100%
+}
