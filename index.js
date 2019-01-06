@@ -21,13 +21,14 @@ function formListener() {
         $('.youtube-results').empty();
         $('.results-header').empty();
         $('.book-details').empty();
-        $('.subtitle').hide();
+        $('.arrow').fadeIn(3000);
         console.log('The form has collected data');
 
         let titleField = $('#title').val();
         let title = titleField.replace(/[, ]+/g, '%20');
         console.log(`The user wants to see reviews of ${titleField}.`);
 
+        //Checking to see if the search form is submitted without any input
         if (!document.getElementById("title").value) {
             $('.results-header').append(`
                 <h2>Please enter a valid book title or author and try again.</h2>
@@ -38,7 +39,7 @@ function formListener() {
             youtubeApiCall(title);
             googleBooksApiCall(title);
             $('.results-header').append(`
-            <h2>Showing results for ${titleField}</h2>
+            <h2>Reviews for ${titleField}</h2>
             `);
         }
     
@@ -63,20 +64,29 @@ function displayBookData(responseJson2) {
     console.log('The displayBookData function is running...')
     console.log(responseJson2);
  //Display general book information for user's search
+
+    if (responseJson2.totalItems === 0) {
+        $('.results-header').empty();
+        $('.results-header').append(`
+                <h2>Please enter a valid book title or author and try again.</h2>
+                `);
+    }
+
     $('.book-details').append(`
     <div class="book-info">
         <img class="cover-photo" src="${responseJson2.items[0].volumeInfo.imageLinks.thumbnail}" alt="${responseJson2.items[0].volumeInfo.title} cover photo">
         <h2 class="book-title"><span class="title-2">${responseJson2.items[0].volumeInfo.title}</span></b>
-        by: ${responseJson2.items[0].volumeInfo.authors}</h2>
+        by: ${responseJson2.items[0].volumeInfo.authors} <br><br><span class="blurb">
+        ${responseJson2.items[0].searchInfo.textSnippet}</splan></h2>
+        
     </div>
     <button class="expand" type="button">Show/hide book details</button>
     <div class="info-dropdown">
-        <p>${responseJson2.items[0].searchInfo.textSnippet}</p>
-        <h4>Publisher: ${responseJson2.items[0].volumeInfo.publisher}</h4>
-        <h4>Publish Date: ${responseJson2.items[0].volumeInfo.publishedDate}</h4>
-        <h4>Genre: ${responseJson2.items[0].volumeInfo.categories}</h4>
-        <h4>Google Books Rating: ${responseJson2.items[0].volumeInfo.averageRating}/5</h4>
-        <h4>Page Count: ${responseJson2.items[0].volumeInfo.pageCount}</h4>
+        <h4 class="info-title">Publisher: ${responseJson2.items[0].volumeInfo.publisher}</h4>
+        <h4 class="info-title">Publish Date: ${responseJson2.items[0].volumeInfo.publishedDate}</h4>
+        <h4 class="info-title">Genre: ${responseJson2.items[0].volumeInfo.categories}</h4>
+        <h4 class="info-title">Google Books Rating: ${responseJson2.items[0].volumeInfo.averageRating}/5</h4>
+        <h4 class="info-title">Page Count: ${responseJson2.items[0].volumeInfo.pageCount}</h4>
         <h4><a target="_blank" href="${responseJson2.items[0].volumeInfo.previewLink}">Preview the book on Google Books</a></h4>
         <h4><a target="_blank" href="${responseJson2.items[0].saleInfo.buyLink}">Purchase on Google Books</a></h4>
     </div>
@@ -115,14 +125,18 @@ function displayResults(responseJson) {
  //Display the results from the youtubeapiCall function and display them in the DOM
     for (let i = 0; i < responseJson.items.length; i++)
     $('.youtube-results').append(`
-    <iframe id="ytplayer" type="text/html" 
-        src="https://www.youtube.com/embed/${responseJson.items[i].id.videoId}?autoplay=0"
-        frameborder="0">
-    </iframe>
-    <div class="video-details">
-        <h3>${responseJson.items[i].snippet.title}</h3>
-        <h4>${responseJson.items[i].snippet.channelTitle}</h4>
-        <p>${responseJson.items[i].snippet.description}</p>
+    <div class="videos">
+        <iframe id="ytplayer" type="text/html" 
+            src="https://www.youtube.com/embed/${responseJson.items[i].id.videoId}?autoplay=0"
+            frameborder="0">
+        </iframe>
+        <div class="video-details">
+            <h3>${responseJson.items[i].snippet.title}</h3>
+            <h4><a href="https://www.youtube.com/channel/${responseJson.items[i].snippet.channelId}">${responseJson.items[i].snippet.channelTitle}</a></h4>
+            <p>${responseJson.items[i].snippet.description}</p>
+            <p><a href="https://www.youtube.com/watch?v=${responseJson.items[i].id.videoId}">SEE MORE</a></p>
+        </div>
+        <hr>
     </div>
     `);
 }
@@ -131,6 +145,7 @@ function runApp() {
     console.log('The Book Review App is running');
  //Run the app on page load
     formListener();
+    $('.arrow').hide();
 }
 
 $(runApp);

@@ -4,27 +4,35 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" type="text/css" href="style.css">
-        <link href="https://fonts.googleapis.com/css?family=Abril+Fatface|Alegreya+Sans|Playfair+Display" rel="stylesheet"> 
-        <title>Book Review App Prototype</title>
+        <link href="https://fonts.googleapis.com/css?family=Abril+Fatface|Alegreya+Sans|Playfair+Display" rel="stylesheet">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous"> 
+        <title>Readview</title>
     </head>
-    <header role="banner">
-        <h1>Book Vlog</h1>
+    <header role="banner" id="header">
+        <h1>Re<span class="ad">ad</span>view</h1>
     </header>
     <body>
-        <div class="subtitle">Video Reviews at Your Fingertips</div>
+        <div class="subtitle">Video Book Reviews at Your Fingertips</div>
         <main role="main">
             <section role="region" class="search-form">
-                <form>
+                <form class="search-container">
                         <input type="text" name="title" id="title" placeholder="Enter a book title or author" required/>
-                        <input type="submit" name="submit-button" id="submit-button">
+                        <button type="submit" name="submit-button" id="submit-button">
+                        <img class="search-icon" id="submit-icon" src="http://www.endlessicons.com/wp-content/uploads/2012/12/search-icon.png"></button>
                 </form>
             </section>
-            <section role="region" class="details-section">
+            <section class="nav">
+                <a class="arrow" href="#details-section"><i class="fas fa-arrow-alt-circle-down"><br><span class="guide">See Book Info</span></i></a>
+            </section>
+            <section role="region" class="details-section" id="details-section">
                 <div class="book-details">
                     
                 </div>
             </section>
-            <section role="region" class="results-section">
+            <section class="nav2">
+                <a class="arrow" href="#results-section"><i class="fas fa-arrow-alt-circle-down"><br><span class="guide">See Reviews</span></i></a>
+            </section>
+            <section role="region" class="results-section" id="results-section">
                 <h3 class="results-header"></h3>
                 <div class="youtube-results">
 
@@ -34,6 +42,9 @@
                 </div>
             </section>
         </main>
+        <footer role="contentinfo">
+                <a class ="footer-arrow" href="#top"><i class="fas fa-arrow-alt-circle-up"></i></a>
+        </footer>
     </body>
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
             <script src="index.js"></script>
