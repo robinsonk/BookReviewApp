@@ -8,22 +8,20 @@
         <title>Book Review App Prototype</title>
     </head>
     <header role="banner">
-        <h1>Book Blog</h1>
+        <h1>Book Vlog</h1>
     </header>
     <body>
-        <div class="subtitle">Book Review Videos at Your Fingertips</div>
+        <div class="subtitle">Video Reviews at Your Fingertips</div>
         <main role="main">
-            <form>
-                    <input type="text" name="title" id="title" placeholder="Enter a book title">
-                    <input type="text" name="author" id="author" placeholder="Enter an author">
-                    <input type="number" name="limit" id="result-limit" placeholder="How many videos?" min="1" max="10">
-                    <input type="submit" name="submit-button" id="submit-button">
-            </form>
+            <section role="region" class="search-form">
+                <form>
+                        <input type="text" name="title" id="title" placeholder="Enter a book title or author" required/>
+                        <input type="submit" name="submit-button" id="submit-button">
+                </form>
+            </section>
             <section role="region" class="details-section">
                 <div class="book-details">
-                        <div class="book-info">
-
-                        </div>
+                    
                 </div>
             </section>
             <section role="region" class="results-section">
