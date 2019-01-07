@@ -1,8 +1,5 @@
 'use strict';
 
-// -----------TO DO---------------
-// -Plan for edge cases, errors, cases where things don't work as they should (404s, etc)
-
 //Youtube API Key and endpoints
 //Youtube uses %20 to connect spaces 
 const youtubeApiKey= 'AIzaSyAuWUVv36LyE1npxUfX3OhWRc7n7ihYz4c';

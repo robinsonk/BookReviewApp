@@ -21,6 +21,10 @@ body {
     color: white;
 }
 
+.visuallyhidden {
+    display: none;
+}
+
 h1 {
     font-weight: normal;
     text-align: center;
@@ -48,7 +52,7 @@ h1 {
     height: 30px;
     border: none;
     background-color: white;
-    color: rgb(10, 151, 132);
+    color: rgba(83,17,47,1);
 }
 
  #submit-icon {
@@ -198,12 +202,12 @@ footer {
 
  a {
      text-decoration: none;
-     color: rgb(250, 201, 65);
+     color: rgb(199, 160, 53);
  }
 
  a:hover {
 
-     color: rgba(2, 0, 36, 0.753);
+     color: #ff52bd;
  }
 
  a:focus {
@@ -460,8 +464,9 @@ footer {
         height: 240px;
         margin-left: auto;
         margin-right: auto;
-        padding-right: 20px;
+        margin-right: 20px;
         margin-bottom: 80px;
+        box-shadow: 4px 8px 8px rgba(0,0,0,0.2)
     }
 
     body {
@@ -482,17 +487,36 @@ footer {
         border: none;
     }
 
+    .expand {
+        width: 50%;
+        height: 60px;
+        margin-top: 15px;
+        background: white;
+        transition-property: background;
+        transition-duration: 1s;
+        transition-timing-function: linear;
+    }
+
+    .expand:hover {
+        background: rgba(2, 0, 36, 0.753);
+        color: white;
+    }
+
     .details-section {
         padding-top: 50px;
     }
 
+    .info-dropdown {
+        text-align: center;
+    }
+    
+
     .book-info {
-        width: 100%;
+        width: 70%;
         display: flex;
         flex-direction: row;
-        justify-content: flex-start;
-        align-items: initial;
-        margin-left: 135px;
+        justify-content: center;
+        align-items: center;
     }
 
    
@@ -516,13 +540,19 @@ footer {
         width: 80%;
         margin-left: auto;
         margin-right: auto;
+        background-color: white;
+        color: rgba(83,17,47,1);
+        padding-left: 100px;
+        padding-right: 100px;
+        padding-bottom: 50px;
+        box-shadow: 8px 16px 32px rgba(0, 0, 0, 0.342);
     }
 
-   
-    .results-header {
+     .results-header {
         font-size: 25px;
         margin-bottom: 100px;
         margin-top: 500px;
+        padding-top: 30px;
     }
 
     .video-details {
