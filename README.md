@@ -6,6 +6,8 @@ An interactive app for finding video reviews about books.
 
 By searching a book title or author name, ReadView aims to deliver book reviews, specifically in video format, to the user.
 
+---
+
 ### View Live
 
 View the live app [here](https://robinsonk.github.io/ReadView/)
@@ -19,6 +21,8 @@ View the live app [here](https://robinsonk.github.io/ReadView/)
 * Google Books API
 * YouTube Data API
 
+---
+
 ### Screenshots
 
 Search form and hero for ReadView
@@ -29,6 +33,8 @@ Book Details Section
 
 Video Reviews Section
 ![alt text](https://i.imgur.com/3rKWaY2.png "Video Reviews Section")
+
+---
 
 ### Features
 
