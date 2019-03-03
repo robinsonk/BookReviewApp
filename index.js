@@ -73,32 +73,25 @@ function displayBookData(responseJson2) {
     <div class="book-info">
         <img class="cover-photo" src="${responseJson2.items[0].volumeInfo.imageLinks.thumbnail}" alt="${responseJson2.items[0].volumeInfo.title} cover photo">
         <h2 class="book-title"><span class="title-2">${responseJson2.items[0].volumeInfo.title}</span></b>
-        by: ${responseJson2.items[0].volumeInfo.authors} <br><br><span class="blurb">
-        ${responseJson2.items[0].searchInfo.textSnippet}</splan></h2>
+        by: ${responseJson2.items[0].volumeInfo.authors} <br><br>  <span class="blurb">
+        ${responseJson2.items[0].searchInfo.textSnippet}</span></h2>
+    
+
         
-    </div>
-    <button class="expand" type="button">Show/hide book details</button>
-    <div class="info-dropdown">
-        <h4 class="info-title">Publisher: ${responseJson2.items[0].volumeInfo.publisher}</h4>
+    
+    
+    <div class="more-details">
         <h4 class="info-title">Publish Date: ${responseJson2.items[0].volumeInfo.publishedDate}</h4>
+        <h4 class="info-title">Page Count: ${responseJson2.items[0].volumeInfo.pageCount}</h4>
+        <h4 class="info-title">Publisher: ${responseJson2.items[0].volumeInfo.publisher}</h4>
         <h4 class="info-title">Genre: ${responseJson2.items[0].volumeInfo.categories}</h4>
         <h4 class="info-title">Google Books Rating: ${responseJson2.items[0].volumeInfo.averageRating}/5</h4>
-        <h4 class="info-title">Page Count: ${responseJson2.items[0].volumeInfo.pageCount}</h4>
         <h4><a target="_blank" href="${responseJson2.items[0].volumeInfo.previewLink}">Preview the book on Google Books</a></h4>
         <h4><a target="_blank" href="${responseJson2.items[0].saleInfo.buyLink}">Purchase on Google Books</a></h4>
     </div>
-    `); 
+    </div>
     
-    showBookData();
-}
-
-//Toggle extended book info functionality 
-function showBookData() {
-    console.log('Show book data has ran');
-    $('.info-dropdown').hide();
-    $('.expand').click(function() {
-        $('.info-dropdown').toggle();
-    })
+    `); 
 }
 
 

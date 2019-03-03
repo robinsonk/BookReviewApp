@@ -15,7 +15,7 @@ body {
     margin-right: 20px;
     margin-top: 200px;
     background: linear-gradient(193deg, rgba(2,0,36,1) 3%, rgba(83,17,47,1) 40%, rgba(71,13,38,1) 61%, rgba(33,0,11,1) 95%);
-    background-size: cover;
+    background-size: contain;
     background-attachment: fixed;
     background-repeat: no-repeat;
     color: white;
@@ -105,9 +105,11 @@ form {
 
 .cover-photo {
     text-align: right;
-    /* width: 100%; */
+    width: auto;
+    height: auto;
     margin-right: 15px;
     margin-bottom: 15px;
+    margin-top: 0;
 }
 
 .blurb {
@@ -118,8 +120,8 @@ form {
 .book-info {
     display: flex;
     flex-direction: row;
-    justify-content: space-evenly;
     align-content: flex-start;
+    flex-wrap: wrap;
 }
 
 .book-title {
@@ -155,8 +157,9 @@ form {
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
-    align-content: flex-start;
+    align-content: left;
     flex-wrap: wrap;
+    text-align: left;
 }
 
 h2, h3, h4 {
@@ -251,7 +254,7 @@ footer {
         flex-direction: row;
         justify-content: flex-start;
         align-items: initial;
-        margin-left: 70px;
+        margin-left: 90px;
     }
 
     .cover-photo {
@@ -260,6 +263,10 @@ footer {
         margin-bottom: 15px;
         /* width: 100%;
         height: 100%; */
+    }
+
+    .blurb {
+        font-size: 25px;
     }
     
     .book-title {
@@ -413,14 +420,6 @@ footer {
         margin-bottom: 500px;
     }
 
-    .nav2 {
-        display: flex;
-        flex-direction: column;
-        justify-content: space-around;
-        align-content: flex-start;
-        margin-bottom: 500px;
-    }
-
     .nav2 i {
         margin-top: 30px;
     }
@@ -504,31 +503,52 @@ footer {
 
     .details-section {
         padding-top: 50px;
+        background-color: white;
+        color: rgba(83,17,47,1);;
+        text-align: left;
+        margin-bottom: -100px;
+        padding-bottom: 50px;
+        border-bottom: solid 2px rgba(0,0,0,0.2);
     }
 
-    .info-dropdown {
-        text-align: center;
+    .more-details {
+        top: 0;
+        margin-top: 0;
+        text-align: left;
+        font-size: 14px;
     }
     
 
     .book-info {
-        width: 70%;
+        width: 100%;
         display: flex;
         flex-direction: row;
         justify-content: center;
-        align-items: center;
+        flex-wrap: wrap;
+        align-items: left;
     }
 
+    .cover-photo {
+        width: auto;
+        height: 250px;
+    }
    
     .book-title {
         font-size: 20px;
         margin-bottom: 10px;
-        margin-top: 0px;
-        width: 50%;
+        top: 0;
+        width: 30%;
+        padding: 20px;
+        padding-top: 0px;
     }
 
     .blurb {
-        font-size: 18px;
+        display: block;
+        left: 0;
+        font-size: 14px;
+        width: 80%;
+        align-self: left;
+        margin-top: 10px;
     }
 
     .title-2 {
@@ -537,7 +557,7 @@ footer {
     }
 
     .results-section {
-        width: 80%;
+        width: 100%;
         margin-left: auto;
         margin-right: auto;
         background-color: white;
@@ -550,8 +570,7 @@ footer {
 
      .results-header {
         font-size: 25px;
-        margin-bottom: 100px;
-        margin-top: 500px;
+        /* margin-bottom: 100px; */
         padding-top: 30px;
     }
 
